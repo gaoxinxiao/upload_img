@@ -10,9 +10,10 @@ const routes = [
         component: UploadImg
     }
 ]
-const routerHistory = createWebHistory()
+let isProd = process.env.NODE_ENV === 'production'
+const routerHistory = createWebHistory(isProd ? '/uploadDist/' : '')
 const router = createRouter({
     history: routerHistory,
-    routes
+    routes,
 })
 export default router
