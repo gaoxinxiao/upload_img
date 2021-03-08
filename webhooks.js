@@ -31,6 +31,6 @@ handler.on('error', err => {
 handler.on('*', event => {
     console.log('Receive * ', event.payload.ref)
     run_cmd('sh',['./deploy-dev.sh'],function(text){
-        console.log(text)
+        console.log(text,'执行完成')
     })
 })
