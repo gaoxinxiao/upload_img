@@ -17,7 +17,6 @@ function run_cmd(cmd, args, callback) {
 }
 
 http.createServer((req, res) => {
-    console.log('访问成功')
     handler(req, res, err => {
         res.statusCode = 404
         res.end('no such location')
@@ -30,6 +29,7 @@ handler.on('error', err => {
 
 handler.on('*', event => {
     console.log('Receive * ', event.payload.ref)
+    console.log('打包发布中请等待。。。。')
     run_cmd('sh',['./deploy-dev.sh'],function(text){
         console.log(text,'执行完成')
     })
