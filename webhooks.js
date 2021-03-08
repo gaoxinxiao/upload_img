@@ -17,6 +17,7 @@ function run_cmd(cmd, args, callback) {
 }
 
 http.createServer((req, res) => {
+    console.log('访问成功')
     handler(req, res, err => {
         res.statusCode = 404
         res.end('no such location')
