@@ -1,5 +1,5 @@
 <template>
-    <div>小辣椒</div>
+    <div>小老弟</div>
 </template>
 <script></script>
 <style scoped>
