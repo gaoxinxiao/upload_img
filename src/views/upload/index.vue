@@ -1,5 +1,5 @@
 <template>
-    <div>上传</div>
+    <div>屌丝</div>
 </template>
 <script></script>
 <style scoped>
