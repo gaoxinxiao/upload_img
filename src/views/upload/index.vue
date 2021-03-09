@@ -1,5 +1,5 @@
 <template>
-    <div>西北油面粗</div>
+    <div>肥猫烤鱼</div>
 </template>
 <script></script>
 <style scoped>
