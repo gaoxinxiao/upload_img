@@ -5,11 +5,10 @@
 export default {
   data() {
     return {
-      name: "串串香",
+      name: "巴奴毛肚",
     };
   },
   mounted() {
-    console.log(this.cc.a)
   },
 };
 </script>
