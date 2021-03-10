@@ -1,7 +1,16 @@
 <template>
-    <div>西贝莜面村</div>
+  <div>{{name}}</div>
 </template>
-<script></script>
-<style scoped>
-
-</style>
+<script>
+export default {
+  data() {
+    return {
+      name: "串串香",
+    };
+  },
+  mounted() {
+    console.log(this.cc.a)
+  },
+};
+</script>
+<style scoped></style>
