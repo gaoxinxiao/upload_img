@@ -20,11 +20,11 @@ const uploadImg = (res, finshList) => {
     console.log(res.path, 'path')
     console.log(res.name, 'name')
     const { path, name } = res
-    const uploadPath = "/app/upload_img/server";
+    const uploadPath = "/app/upload_img/server/image";
     const flag = fs.existsSync(uploadPath); // 判断文件夹是否存在
     // 同步创建多级文件夹
     if (!flag) mkdirp.sync(uploadPath);
-    const filePath = `/app/upload_img/server/${name}`
+    const filePath = `/app/upload_img/server/image/${name}`
     const reader = fs.createReadStream(path)
     const upStream = fs.createWriteStream(filePath);
     upStream.on('finish', function () {
@@ -33,7 +33,7 @@ const uploadImg = (res, finshList) => {
     reader.pipe(upStream);
 }
 
-router.post('/upload', async (ctx) => {
+router.post('/api/upload', async (ctx) => {
     const files = ctx.request.files
     let arr = []
     if (Array.isArray(files.files)) {
@@ -46,6 +46,11 @@ router.post('/upload', async (ctx) => {
     ctx.body = 'ok'
 })
 
+router.get('/api/test', async (ctx) => {
+    ctx.body = 'ok'
+})
 
 
 app.listen(7000, () => console.log('listen at 7000'))
+
+
