@@ -30,6 +30,7 @@
     "koa-bodyparser": "^4.3.0",
     "koa-multer": "^1.0.2",
     "koa-router": "^10.0.0",
+    "lrz": "^4.9.41",
     "mkdirp": "^1.0.4",
     "qs": "^6.9.6"
   },
