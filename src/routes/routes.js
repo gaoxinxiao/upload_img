@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import UploadImg from '@/views/upload/index.vue'
+import Wmh from '@/views/wmh.vue'
 
 
 const routes = [
@@ -8,6 +9,11 @@ const routes = [
         path: '/',
         name: 'upload',
         component: UploadImg
+    },
+    {
+        path: '/wmh',
+        name: 'wmh',
+        component: Wmh
     }
 ]
 let isProd = process.env.NODE_ENV === 'production'
