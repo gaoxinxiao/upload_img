@@ -4,65 +4,26 @@
     <ul
       v-for="(pitem, index) in dataList"
       :key="index"
-      :style="`height:${hei === 'auto' ? 'auto' : hei}px`"
-      :class="`list ${selectIndex === index ? 'list_hei' : ''}`"
+      :style="`height:${selectIndex === index ? hei : '120'}px`"
+      :class="`list`"
     >
-      <template v-if="pitem.details.length > 3">
-        <template v-if="selectIndex !== index">
-          <li
-            @click="open(index, pitem.details)"
-            v-for="(item, ind) in pitem.details.slice(
-              pitem.details.length - 3,
-              pitem.details.length
-            )"
-            :key="ind"
-            :style="`
+      <li
+        @click="open(index, pitem.details)"
+        v-for="(item, ind) in pitem.details"
+        :key="ind"
+        :style="`
         top:${
           selectIndex === index
             ? (100 + 10) * item.lastIndex
-            : item.lastIndex * 10
+            : item.lastIndex <= 2
+            ? item.lastIndex * 10
+            : 2 * 10
         }px; 
-        width:${selectIndex === index ? null : 300 - item.lastIndex * 20}px
+        width:${selectIndex === index ? 300 : 300 - item.lastIndex * 20}px
         `"
-          >
-            {{ item.sendNickName }}
-          </li>
-        </template>
-        <template v-else>
-          <li
-            @click="open(index, pitem.details)"
-            v-for="(item, ind) in pitem.details"
-            :key="ind"
-            :style="`
-        top:${
-          selectIndex === index
-            ? (100 + 10) * item.lastIndex
-            : item.lastIndex * 10
-        }px; 
-        width:${selectIndex === index ? null : 300 - item.lastIndex * 20}px
-        `"
-          >
-            {{ item.sendNickName }}
-          </li>
-        </template>
-      </template>
-      <template v-else>
-        <li
-          @click="open(index, pitem.details)"
-          v-for="(item, ind) in pitem.details"
-          :key="ind"
-          :style="`
-        top:${
-          selectIndex === index
-            ? (100 + 10) * item.lastIndex
-            : item.lastIndex * 10
-        }px; 
-        width:${selectIndex === index ? null : 300 - item.lastIndex * 20}px
-        `"
-        >
-          {{ item.sendNickName }}
-        </li>
-      </template>
+      >
+        {{ item.sendNickName }}
+      </li>
     </ul>
   </div>
 </template>
@@ -489,7 +450,7 @@ export default {
         this.hei = "auto";
         return;
       }
-      this.hei = detail.length * 120;
+      this.hei = detail.length * 110;
       this.selectIndex = index;
     },
   },
@@ -499,7 +460,7 @@ export default {
 .wrap {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .list_hei {
@@ -527,14 +488,6 @@ export default {
   cursor: pointer;
   transition: 0.3s;
   background: #ccc;
+  overflow: hidden;
 }
-/* .list li:first-child {
-  background: red;
-}
-.list li:nth-child(2) {
-  background: yellow;
-}
-.list li:nth-child(3) {
-  background: green;
-} */
 </style>
